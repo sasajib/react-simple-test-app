@@ -33,7 +33,7 @@ class App extends Component {
     render() {
         //this function as like rx js functionality. It execute after 
         //user has finished his typing before 350 milliseconds.
-        //it also return a higher order function
+        //it return a higher order function
         const controlledSearch = _.debounce((term) => {
             this.videoSearch(term)
         }, 350);
