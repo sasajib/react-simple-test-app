@@ -31,13 +31,16 @@ class App extends Component {
     }
 
     render() {
-        const controllerSearch = _.debounce((term) => {
+        //this function as like rx js functionality. It execute after 
+        //user has finished his typing before 350 milliseconds
+        //it also return a curried function
+        const controlledSearch = _.debounce((term) => {
             this.videoSearch(term)
         }, 350);
 
         return (
                 <div>
-                    <SearchBar onSearchTerm={controllerSearch}/>
+                    <SearchBar onSearchTerm={controlledSearch}/>
                     <VideoDetails video={this.state.selectedVideo}/>
                     <VideoList
                             onVideoSelect={selectedVideo => this.setState({selectedVideo})}
